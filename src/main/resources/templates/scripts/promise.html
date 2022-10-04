@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let promise = Promise.resolve();
+
+    promise.then(() => alert("промис выполнен"));
+
+    alert("код выполнен"); // этот alert показывается первым
+</script>
+
+</body>
+</html>

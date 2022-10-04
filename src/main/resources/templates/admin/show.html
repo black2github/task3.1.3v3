@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.getUsername()}">name</td>
+        <td th:text="${user.getPassword()}">surname</td>
+        <td th:text="${user.getAge()}">age</td>
+    </tr>
+    </tbody>
+</table>
+<p/>
+<a th:href="@{/admin/{id}/edit(id=${user.getId()})}">Edit</a>
+<br/>
+<hr/>
+<form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+    <input type="submit" value="Delete!">
+</form>
+<p></p>
+<form th:action="@{/logout}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="submit" value="Выход"></input>
+</form>
+</body>
+</html>
